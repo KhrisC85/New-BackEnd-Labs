@@ -1,0 +1,201 @@
+package week004;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class codingproject {
+	public static void main(String[] args) {
+		//Testing my own method for Q13: does he run fast enough ?
+		
+		boolean doesHeRunFastEnough = true; //he does run fast enough to be on my tea,
+		double time = 4.4; //his forty time must be 4.4 or better
+		double time1 = 4.3; // Sub 4.4 seconds (true)
+        double time2 = 4.5; // Over 4.4 seconds (false)
+
+        System.out.println("Does he run fast enough? " + doesHeRunFastEnough(time1) + " true");  
+        System.out.println("Does he run fast enough? " + doesHeRunFastEnough(time2) + " false"); 
+		// true if faster, false if slower
+        
+		// Testing method for Q12, is it hot outside and do i have enough money to buy drink ?
+		 boolean isHotOutside = true;  // It is hot outside
+	        double moneyInPocket = 15.00;  // The person has 15.00 in their pocket
+
+	        boolean resultToDrinkOrNot = willBuyDrink(isHotOutside, moneyInPocket);
+	        
+	        System.out.println("Will buy a drink? " + resultToDrinkOrNot);
+		
+		//Testing method for Q11 for 2 arrays:
+		
+        double[] array1 = {11.5, 24.0, 31.5, 49.0};
+        double[] array2 = {7.0, 19.0, 27.0, 39.0};
+
+        boolean result = isFirstAverageGreaterThanSecond(array1, array2);
+        //Will the array be greater? Yes its true
+        System.out.println("Is the average of the first array greater than the second? " + result); 
+		
+		//Testing method for Q10:
+		double[] numbers = {12.5, 28.0, 34.5, 42.0};
+        double average = calculateAverage1(numbers);
+        
+        System.out.println("Average: " + average); 
+		
+		//Testing method for Q9:
+		int [] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+		boolean result3 = isSumGreaterThan100(ages);
+        
+        System.out.println("Is the sum greater than 100? " + result3);
+		
+		// Testing Method for Q8:
+        String firstName = "John";
+        String lastName = "Doe";
+        String fullName = getFullName(firstName, lastName);
+        System.out.println(fullName);
+		// Testing method for Q7:
+        String word = "Hello";
+        int n = 3;
+        String myResult = myString(word, n);
+        System.out.println(myResult);
+		//array of strings
+		String [] names = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"} ;
+	        
+	        // Create nameLengths array
+	        int[] nameLengths = new int[names.length];
+	        
+	        // Iterate through names array and add length of each name to the nameLengths array
+	        for (int i = 0; i < names.length; i++) {
+	            nameLengths[i] = names[i].length();
+	        }  // Calculate the sum of all elements in the nameLengths array
+	        int sum = 0;
+	        for (int length : nameLengths) {
+	            sum += length;
+	        }
+
+	        // Print the result
+	        System.out.println("Sum of all name lengths: " + sum);
+
+	        // Print nameLengths array
+	        System.out.println("Name lengths: ");
+	        for (int length : nameLengths) {
+	            System.out.print(length + " ");
+		// Calculate total number of letters
+        int totalLetters = 0;
+        for (String name : names) {
+            totalLetters += name.length();
+         // Concatenate names with spaces
+            StringBuilder allNames = new StringBuilder();
+            for (int i = 0; i < names.length; i++) {
+                allNames.append(names[i]);
+                if (i < names.length - 1) {
+                    allNames.append(" ");
+                }
+            }
+
+            // Print the result
+            System.out.println("All names: " + allNames.toString());
+        }
+        	//How do you access the last element of any array? - Q3: array[array.length - 1]
+        	// How do you access the first? Q4: array[0];
+
+        // Calculate and print average
+        double averageLetters = (double) totalLetters / names.length;
+        System.out.println("Average number of letters per name: " + averageLetters);
+	// array of ages
+	int [] ages1 = {3, 9, 23, 64, 2, 8, 28, 93};
+	// the last age minus the first integer
+	int result1 = ages1[ages1.length - 1] - ages1[0];
+	System.out.println("Result 1: " + result1);
+    System.out.println("Ages array: " + Arrays.toString(ages1));
+ // Calculate sum using a loop
+    int sum1 = 0;
+    for (int age : ages1) {
+        sum1 += age;
+    } // Calculate and print average
+    double average1 = (double) sum1 / ages1.length;
+    System.out.println("Average age: " + average1); { 
+	//Second set of array of ages
+	int[] ages2 = {1, 3, 7, 9, 11, 15, 20, 21, 28} ;
+	//will run same program from first array
+	int result2 = ages2[ages2.length - 1] - ages2[0];
+	System.out.println("Result 2: " + result2);
+    System.out.println("Ages2 array: " + Arrays.toString(ages2));
+    }
+	        }
+	        }
+	//Creating my own method
+	public static double doesHeRunFastEnough(double time) {
+		//Return true if he runs a sub 4.4 forty yard dash time? 
+		return time ;
+	}
+	
+	
+	// Method determines if a drink will be bought or not
+    public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+        // Return true if it's hot outside and the money in pocket is greater than 10.50
+        return isHotOutside && moneyInPocket > 10.50;
+    }
+	
+	
+	 public static double calculateAverage1(double[] numbers) {
+	        double sum = 0;
+	        
+	        // Calculate the sum of all elements in the array
+	        for (double number : numbers) {
+	            sum += number;
+	        }
+	        
+	        // Return the average (sum divided by the number of elements)
+	        return sum / numbers.length;
+	    }
+
+	    // Method to compare the averages of two arrays
+	    public static boolean isFirstAverageGreaterThanSecond(double[] array1, double[] array2) {
+	        double average1 = calculateAverage(array1);
+	        double average2 = calculateAverage(array2);
+	        
+	        // Return true if the average of array1 is greater than the average of array2
+	        return average1 > average2;
+	    }
+	
+	// Method to calculate the average of elements in the array
+    public static double calculateAverage(double[] numbers) {
+        double sum = 0;
+        
+        // Calculate the sum of all elements in the array
+        for (double number : numbers) {
+            sum += number; }
+    
+    return sum / numbers.length; }
+	
+	
+	public static boolean isSumGreaterThan100(int[] numbers) {
+        int sum = 0;
+        
+        // Calculate the sum of all elements in the array
+        for (int number : numbers) {
+            sum += number;
+        }
+        
+        // Return true if sum is greater than 100, else false
+        return sum > 100; }
+	
+	public static String getFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+	}
+	
+	
+    public static String myString(String word, int n) {
+    	// StringBuilder is efficient for concatenation
+        StringBuilder result = new StringBuilder(); 
+        for (int i = 0; i < n; i++) {
+            result.append(word); // Concatenate
+        }
+        return result.toString(); // Convert StringBuilder to String and return to line
+	        
+	}
+}
+
